@@ -6,10 +6,11 @@ var loss=0;
 var guessL=9;
 
 var letter=getLetter();
+var key = "";
 
 function myFunction(event) {
 
-var key = event.key;
+key = event.key;
 document.getElementById("idGuess").innerHTML = key;
 
 
@@ -17,18 +18,28 @@ document.getElementById("idGuess").innerHTML = key;
  
  if(guessL==0)
 	 {
-		document.getElementById("idWin").innerHTML="Win: "+ win;
-		document.getElementById("idLoss").innerHTML="Loss: "+loss;
-		document.getElementById("idGuessL").innerHTML="Guess Left: "+guessL;
+	 	document.getElementById("idWin").innerHTML="Win: "+ win;
+		document.getElementById("idLoss").innerHTML="Loss: "+ loss;
+		document.getElementById("idGuessL").innerHTML="Guess Left: "+9;
 
-		document.getElementById("idGameOver").innerHTML="Game Over";
-
-		win=0;
-		loss=0;
+		document.getElementById("idGuess").innerHTML = " ";
 		guessL=9;
-		document.getElementById("idGuess").disabled = true;
+		validate();
+		//document.getElementById("idGameOver").innerHTML="Game Over";
+
+		
+	 	//document.getElementById("idGuess").disabled = true;	
+		
 	}
-	else if(key==letter && guessL>0)
+	else validate();
+}
+
+
+
+function validate(){
+//debugger;
+
+	if(key==letter)
 	{
 		guessL--;
 		win++;
@@ -36,20 +47,29 @@ document.getElementById("idGuess").innerHTML = key;
 		document.getElementById("idLoss").innerHTML="Loss: "+ loss;
 		document.getElementById("idGuessL").innerHTML="Guess Left: "+ guessL;
 		letter=getLetter();
+		document.getElementById("idGuess").value = "";
+
 	}
-	else {
+	 else if(key!==letter && guessL==1){
+
+	 	loss++;
+	 	guessL--;
+		document.getElementById("idWin").innerHTML="Win: "+ win;
+		document.getElementById("idLoss").innerHTML="Loss: "+loss;
+		document.getElementById("idGuessL").innerHTML="Guess Left: "+guessL;
+		letter=getLetter();
+		document.getElementById("idGuess").value = "";
+		guessL=9
+	 }	
+
+	else if(key!==letter && guessL>0) {
 		guessL--;
-		loss++;
 		document.getElementById("idWin").innerHTML="Win: "+ win;
 		document.getElementById("idLoss").innerHTML="Loss: "+loss;
 		document.getElementById("idGuessL").innerHTML="Guess Left: "+guessL;
 	}
-	
+
 }
-
-
-
-
 
 
 //fuction get letter
