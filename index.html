@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="UTF-8">
+    <title>Psychic-Game</title>
+</head>
+
+<!--Styles-->
+<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+<!--Script-->
+    <script type="text/javascript" src="assets/javascript/game.js"></script>
+<body>
+	
+	<h1>The Psychic Game</h1>
+
+	<p>Guess what letter I'm thinking of.........</p>
+
+	<div>
+		<p id="idWin">Wins: 0</p>
+		<p id="idLoss">Loss: 0</p>
+		<p id="idGuessL">Guess Left: 9</p>
+	</div>
+			
+	<p>Your Guesses so far: </p><input id="idGuess" type="text" size="40" onkeyup="myFunction(event)">
+
+	<h1 id="idGameOver"> </h1>
+
+</body>
+
+</html>
