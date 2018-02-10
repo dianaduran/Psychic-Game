@@ -1,0 +1,16 @@
+body{
+
+	background-image: url("../images/crystal.jpg");
+	background-repeat: no-repeat;
+	color: aquamarine ! important ;
+}
+
+input{
+	border: none;
+	background: none;
+	color: aquamarine ! important ;
+}
+
+.opa{
+	opacity: .5;
+}

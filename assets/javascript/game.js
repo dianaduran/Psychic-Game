@@ -1,16 +1,17 @@
 
-//alert("stoy");
+
 
 var win=0;
 var loss=0;
 var guessL=9;
 
-var letter=getLetter();
+var letter=getLetter(); //get the letter ramdom
 var key = "";
 
+//function when start the key
 function myFunction(event) {
 
-key = event.key;
+key = event.key; // get letter press
 document.getElementById("idGuess").innerHTML = key;
 
 
@@ -24,34 +25,32 @@ document.getElementById("idGuess").innerHTML = key;
 
 		document.getElementById("idGuess").innerHTML = " ";
 		guessL=9;
-		validate();
-		//document.getElementById("idGameOver").innerHTML="Game Over";
-
-		
-	 	//document.getElementById("idGuess").disabled = true;	
-		
+		validate(); // go to function to validate
+			
 	}
-	else validate();
+	else validate(); // go to function to validate
 }
 
 
 
 function validate(){
-//debugger;
 
-	if(key==letter)
+
+	if(key==letter) //ask if the letters are ==
 	{
 		guessL--;
 		win++;
+		document.getElementById("idBody").classList.remove("opa");
 		document.getElementById("idWin").innerHTML="Wins: "+ win;
 		document.getElementById("idLoss").innerHTML="Loss: "+ loss;
 		document.getElementById("idGuessL").innerHTML="Guess Left: "+ guessL;
 		letter=getLetter();
 		document.getElementById("idGuess").value = "";
+		
 
 	}
-	 else if(key!==letter && guessL==1){
-
+	 else if(key!==letter && guessL==1) // ask if the letter aren't == and don't have guessL
+	 {
 	 	loss++;
 	 	guessL--;
 		document.getElementById("idWin").innerHTML="Win: "+ win;
@@ -62,11 +61,14 @@ function validate(){
 		guessL=9
 	 }	
 
-	else if(key!==letter && guessL>0) {
+	else if(key!==letter && guessL>0) //// ask if the letter aren't == and have guessL
+	{
 		guessL--;
+		document.getElementById("idBody").classList.add("opa");
 		document.getElementById("idWin").innerHTML="Win: "+ win;
 		document.getElementById("idLoss").innerHTML="Loss: "+loss;
 		document.getElementById("idGuessL").innerHTML="Guess Left: "+guessL;
+		
 	}
 
 }
