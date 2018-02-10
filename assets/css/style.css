@@ -3,6 +3,7 @@ body{
 	background-image: url("../images/crystal.jpg");
 	background-repeat: no-repeat;
 	color: aquamarine ! important ;
+	width: 100%
 }
 
 input{
