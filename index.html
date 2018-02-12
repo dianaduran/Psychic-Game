@@ -9,12 +9,16 @@
 <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
 <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+<link href="https://fonts.googleapis.com/css?family=Butcherman" rel="stylesheet">
+
 <!--Script-->
     <script type="text/javascript" src="assets/javascript/game.js"></script>
+
 <body id="idBody">
 	
 <div class="container text-center" style="margin-top:  123px;">
 	<h1>The Psychic Game</h1>
+	<hr>
 
 	<h3>Guess what letter I'm thinking of.........</h3>
 
@@ -24,10 +28,12 @@
 		<p id="idGuessL">Guess Left: 9</p>
 	</div>
 			
-	<p>Your Guesses so far: </p><input id="idGuess" type="text" size="40" placeholder="Click here!!" onkeyup="myFunction(event)">
+	<p>Your Guesses so far: </p><input id="idGuess" type="text" size="40" placeholder="Click here!!" onkeypress="return textonly(event)">
 
 	
 </div>
+
+
 
 </body>
 

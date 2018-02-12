@@ -8,16 +8,34 @@ var guessL=9;
 var letter=getLetter(); //get the letter ramdom
 var key = "";
 
+
+
 //function when start the key
-function myFunction(event) {
+function textonly(e){
 
-key = event.key; // get letter press
-document.getElementById("idGuess").innerHTML = key;
+var code;
+
+if (!e) var e = window.event; // get letter press
+if (e.keyCode) code = e.keyCode;
+else if (e.which) code = e.which;
+var character = String.fromCharCode(code);
+
+    var AllowRegex  = /^[\ba-zA-Z\s-]$/;
+    if (AllowRegex.test(character)) {
+    	myFunction(character);
+    	return true;
+    	}     
+    return false; 
+}
 
 
 
- 
- if(guessL==0)
+function myFunction(ch) {
+
+key = ch.toLowerCase(); // get letter press
+
+
+if(guessL==0)
 	 {
 	 	document.getElementById("idWin").innerHTML="Win: "+ win;
 		document.getElementById("idLoss").innerHTML="Loss: "+ loss;
@@ -32,7 +50,7 @@ document.getElementById("idGuess").innerHTML = key;
 }
 
 
-
+//function validate if the letter is correct
 function validate(){
 
 
@@ -85,7 +103,7 @@ function getLetter(){
   {
    word=letter.charAt(Math.floor(Math.random() * letter.length)); // charAt(position), floor(round), random(values random)
   }
-  console.log(word);
+  //console.log(word);
   return word;
  }
 
